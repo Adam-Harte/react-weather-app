@@ -1,0 +1,8 @@
+.Button {
+   border: none;
+   border-radius: 5px;
+   padding: 0px 5px 5px 0px;
+   cursor: pointer;
+   color: white;
+   flex: 1;
+}
