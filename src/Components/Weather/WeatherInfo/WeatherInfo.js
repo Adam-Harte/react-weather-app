@@ -3,7 +3,9 @@ import React from 'react';
 const WeatherInfo = (props) => {
    return (
       <div>
-         <img src={props.icon} alt={props.alt} />
+         <h1>{props.description}</h1>
+         <p>{props.temp}</p>
+         <p>{props.wind}</p>
       </div>
    );
 };
