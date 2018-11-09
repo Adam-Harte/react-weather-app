@@ -1,0 +1,23 @@
+.WeatherInfo {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+.description {
+   flex: 0 1 100%;
+}
+
+.temp {
+   flex: 0 1 100%;
+}
+
+.wind {
+   margin-right: auto;
+   flex: 0 1 50%;
+}
+
+.humidity {
+   margin-left: auto;
+   flex: 0 1 50%;
+}

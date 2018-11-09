@@ -6,6 +6,7 @@ const WeatherInfo = (props) => {
          <h1>{props.description}</h1>
          <p>{props.temp}</p>
          <p>{props.wind}</p>
+         <p>{props.humidity}</p>
       </div>
    );
 };
