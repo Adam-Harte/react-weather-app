@@ -3,7 +3,7 @@ import React from 'react';
 const WeatherIcon = (props) => {
    return (
       <div>
-         <img src={props.icon} alt={props.alt} />
+         <img src={'http://openweathermap.org/img/w/10d.png' + props.icon + '.png'} alt={props.alt} />
       </div>
    );
 };
