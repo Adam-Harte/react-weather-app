@@ -6,12 +6,19 @@ import WeatherInfo from '../WeatherInfo/WeatherInfo';
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
 
 const WeatherDisplay = (props) => {
+   let temp = props.data.main.temp;
+
+   if (props.metric === 'celsius') {
+      temp = (props.data.main.temp - 273.15).toFixed(1)
+   } else {
+      temp = ((props.data.main.temp - 273.15) * 9 / 5 + 32).toFixed(1)
+   }
       return (
          <div className="WeatherDisplay">
             <div className="info-container">
                <WeatherInfo
                   description={props.data.weather[0].description}
-                  temp={props.data.main.temp}
+                  temp={temp}
                   wind={props.data.wind.speed}
                   humidity={props.data.main.humidity} />
             </div>

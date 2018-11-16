@@ -11,11 +11,12 @@ class Weather extends Component {
       data: [],
       loading: true,
       query: "weather",
-      location: ""
+      location: "",
+      metrics: "celsius"
    }
 
    componentDidMount() {
-      axios.get(this.state.query + '?q=London&APPID=34d867e6bd0decb3b401e02be6a10993')
+      axios.get(this.state.query + '?q=London&units=metrics&APPID=34d867e6bd0decb3b401e02be6a10993')
          .then(res => {
             console.log(res);
             const newData =[];
@@ -52,12 +53,16 @@ class Weather extends Component {
       this.setState({query: query});
    }
 
+   toggleMetrics = metric => {
+      this.setState({metrics: metric});
+   }
+
    render() {
       let content = <Spinner />
 
       if (!this.state.loading) {
          content = this.state.data.map((data, index) => {
-            return <WeatherDisplay key={index} data={data} />
+            return <WeatherDisplay key={index} metric={this.state.metrics} data={data} />
          })
       }
       return (
@@ -66,6 +71,8 @@ class Weather extends Component {
             <Button btnStyle="Success" clicked={this.searchWeatherHandler}>Search</Button>
             <Button btnStyle="Success" clicked={() => this.toggleQuery('weather')}>Weather</Button>
             <Button btnStyle="Cancel" clicked={() => this.toggleQuery('forecast')}>Forecast</Button>
+            <Button btnStyle="Success" clicked={() => this.toggleMetrics('celsius')}>C</Button>
+            <Button btnStyle="Cancel" clicked={() => this.toggleMetrics('fahrenheit')}>F</Button>
             {content}
          </div>
       );
